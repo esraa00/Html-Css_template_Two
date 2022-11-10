@@ -2,6 +2,7 @@
 :root {
   --main-color: #19c8fa;
   --transparent-color: rgb(15 116 143 / 70%);
+  --section-padding: 100px;
 }
 /* end variable */
 
@@ -18,7 +19,6 @@ html {
 
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: burlywood;
 }
 
 ul {
@@ -54,8 +54,56 @@ a {
     width: 1170px;
   }
 }
-/* end global rules */
 
+/* end global rules */
+/* start components */
+
+.special-heading {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.special-heading h2 {
+  font-weight: normal;
+  font-size: 40px;
+  margin-bottom: 70px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.special-heading h2:before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 3px;
+  left: 50%;
+  background-color: #333;
+  bottom: -35px;
+  transform: translateX(-50%);
+}
+
+.special-heading h2:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  bottom: -42.5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+}
+
+.special-heading p {
+  width: 550px;
+  margin: 0 auto 100px;
+  max-width: 100%;
+  line-height: 2;
+  color: #777;
+}
+
+/* start components */
 /* start header */
 
 header {
@@ -165,6 +213,7 @@ header .search i {
 .landing {
   height: 100vh;
   background-image: url("../images/landing-background.jpg");
+  background-color: burlywood;
   background-size: cover;
   background-color: black;
   position: relative;
@@ -265,3 +314,117 @@ header .search i {
   border-color: var(--main-color);
 }
 /* end landing */
+
+/* start services */
+.services {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+@media (min-width: 768px) {
+  .services .services-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    column-gap: 40px;
+    row-gap: 60px;
+  }
+}
+
+.services .service-box {
+  display: flex;
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .services .service-box {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+}
+
+.services .service-box i {
+  font-size: 40px;
+}
+
+.services .service-box h3 {
+  margin-bottom: 30px;
+  color: var(--main-color);
+}
+
+.services .service-box p {
+  line-height: 2;
+  color: #777;
+}
+/* end services */
+
+/* start design */
+.design {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  position: relative;
+  height: 600px;
+  background-image: url("../images/landing-background.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.design::before {
+  content: "";
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 60%);
+  width: 100%;
+  height: 100%;
+}
+
+.design .image,
+.design .design-text {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .design .image {
+    display: none;
+  }
+}
+
+.design img {
+  width: 400px;
+  position: relative;
+  top: 200px;
+}
+
+.design .design-text {
+  color: white;
+  padding: 50px;
+  background-color: var(--transparent-color);
+}
+
+.design .design-text h3 {
+  font-size: 32px;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.design .design-text ul li {
+  font-size: 14px;
+  line-height: 2;
+  padding-bottom: 15px;
+  display: flex;
+  gap: 20px;
+}
+
+.design .design-text ul li::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\e163";
+  font-weight: 900;
+}
+
+/* end design */ ;
